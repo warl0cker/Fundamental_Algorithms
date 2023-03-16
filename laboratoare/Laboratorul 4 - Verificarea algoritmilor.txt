@@ -1,0 +1,163 @@
+Fie urmatorul  pseudocod:
+maxNum ← -1
+for num ← 1,nr do
+  if vector[num] > maxNum then
+        maxNum ← vector[num] 
+   endif
+endfor
+Cum verificam algoritmul? Care este rezultatul obtinut?
+Pentru primul nostru experiment,  data de intrare va fi un vector de 4 numere, [13, 4, 24, 7]
+______________________________________________________
+ nr | maxNum | num | num <= nr | vector[num] > maxNum |
+-------------------------------------------------------
+ 4  |   -1   |  1  |     A     |         A            |
+    |   13   |  2  |     A     |         F            |
+    |   24   |  3  |     A     |         A            |
+    |        |  4  |     A     |         F            |
+    |        |  5  |     F     |                      |
+
+Dar pentru datele de intrare  [-13, -4, -24, -7] ?
+______________________________________________________
+ nr | maxNum | num | num <= nr | vector[num] > maxNum |
+-------------------------------------------------------
+ 4  |   -1   |  1  |     A     |         F            |
+    |        |  2  |     A     |         F            |
+    |        |  3  |     A     |         F            |
+    |        |  4  |     A     |         F            |
+    |        |  5  |     F     |                      |
+
+Corectam codul nostru, astfel:
+maxNum ← vector[1]
+for num ← 2,nr do
+  if vector[num] > maxNum then
+        maxNum ← vector[num] 
+   endif
+endfor
+Care este rezultatul obținut pentru ambele seturi de date de intrare?
+______________________________________________________
+ nr | maxNum | num | num <= nr | vector[num] > maxNum |
+-------------------------------------------------------
+ 4  |  -13   |  2  |     A     |         A            |
+    |   -4   |  3  |     A     |         F            |
+    |        |  4  |     A     |         F            |
+    |        |  5  |     F     |                      |
+
+/****************************************************************/
+4.1. Descrieti algoritmul (pseudocod sau C/C++) pentru generarea Factorial(n) si analizati corectitudinea acestuia.
+
+ n | fact | i | i <= n |
+------------------------
+ 4 |   1  | 2 |    A   |
+   |   2  | 3 |    A   |
+   |   6  | 4 |    A   |
+   |  24  | 5 |    A   |
+   | 120  | 6 |    F   |
+
+/****************************************************************/
+4.2.  Fie urmatorii algoritmi care calculeaza suma patratelor numerelor de la la 1 la n:
+a)
+i ← 1 
+sum  ← 0
+for i ← 1,nr do
+    sum ← sum + (i*i)   
+endfor
+b)
+i ← 1 
+sum  ← 0
+for i ← 1,nr do
+    sum ← sum + (i+i)   
+endfor
+Care din urmatoarele propozitii sunt adevarate:
+A- Algoritmul a) calculează corect suma, dar algoritmul b) nu.
+B- Algoritmul b) calculează corect suma, dar algoritmul a) nu.
+C- Ambii algoritmi calculeaza corect suma
+D- Niciun algoritm nu calculeaza corect suma
+
+/****************************************************************/
+4.3. Fie algorimtul de mai jos:
+function Algoritm_1(n)
+  x ← 0
+  for i ← 1,n do
+     j ← 1  
+     do
+         x ← x+1
+         j ← j+2
+            while(j ≤ n)
+   endfor 
+    return x 
+end function
+Care este valoarea returnata daca n este 8? Dar daca n este 16?
+
+nr |  i  |     j     |  x  |
+---------------------------
+ 8 |  0  |  3,5,7,9  |   4 |
+   |  1  |  3,5,7,9  |   8 |
+   |  2  |  3,5,7,9  |  12 |
+   |  3  |  3,5,7,9  |  16 |
+   |  4  |  3,5,7,9  |  20 |
+   |  5  |  3,5,7,9  |  24 |
+   |  6  |  3,5,7,9  |  28 |
+   |  7  |  3,5,7,9  |  32 |
+
+nr |  i  |          j           |  x   |
+----------------------------------------
+16 |  0  |  3,5,7,9,11,13,15,17 |    8 |
+   |  1  |  3,5,7,9,11,13,15,17 |   16 |
+   |  2  |  3,5,7,9,11,13,15,17 |   24 |
+   |  3  |  3,5,7,9,11,13,15,17 |   32 |
+   |  4  |  3,5,7,9,11,13,15,17 |   40 |
+   |  5  |  3,5,7,9,11,13,15,17 |   48 |
+   |  6  |  3,5,7,9,11,13,15,17 |   56 |
+   |  7  |  3,5,7,9,11,13,15,17 |   64 |
+   |  8  |  3,5,7,9,11,13,15,17 |   72 |
+   |  9  |  3,5,7,9,11,13,15,17 |   80 |
+   | 10  |  3,5,7,9,11,13,15,17 |   88 |
+   | 11  |  3,5,7,9,11,13,15,17 |   96 |
+   | 12  |  3,5,7,9,11,13,15,17 |  104 |
+   | 13  |  3,5,7,9,11,13,15,17 |  112 |
+   | 14  |  3,5,7,9,11,13,15,17 |  120 |
+   | 15  |  3,5,7,9,11,13,15,17 |  128 |
+
+- Valoarea returnata daca n=8  este x=32
+- Valoarea returnata daca n=16 este x=128
+/****************************************************************/
+4.4 Fie algoritmul din imaginea de mai jos:
+function Algoritm_2(a)
+  x ← 2
+  k ← 0
+  while a > 1 do
+     c ← 0  
+     do
+         c ← x
+         a ← [a/x]
+     while(a mod x = 0)
+     if c ≠  0 then
+         k ← k +x
+     endif 
+     x ← x + 1
+   end while
+   return k
+end function 
+Care este semnificatia executiei acestuia? Demonstrati.
+
+ a |  x  |  k  |  c  | a>1 | a%x==0 | c!=0 |
+--------------------------------------------
+ 7 |  2  |  0  |  A  |  0  |    F   |   A  |
+ 3 |  3  |  2  |  A  |  2  |    F   |   A  |
+ 1 |  4  |  5  |  F  |  0  |        |      |
+   |     |     |     |  3  |        |      |
+--------------------------------------------
+ 9 |  2  |  0  |  A  |  0  |    A   |   A  |
+ 4 |  3  |  2  |  F  |  2  |    A   |      |
+ 2 |     |     |     |  2  |    F   |      |
+ 1 |     |     |     |  2  |        |      |
+--------------------------------------------
+ 8 |  2  |  0  |  A  |  0  |    A   |   A  |
+ 4 |  3  |  2  |  F  |  2  |    A   |      |
+ 2 |  4  |     |     |  2  |    F   |      |
+ 1 |     |     |     |  2  |        |      |
+--------------------------------------------
+10 |  2  |  0  |  A  |  0  |    F   |   A  |
+ 5 |  3  |  2  |  F  |  2  |    F   |      |
+ 1 |     |  5  |     |  0  |        |      |
+   |     |     |     |  3  |        |      |
