@@ -44,7 +44,7 @@ ______________________________________________________
 
 /****************************************************************/
 4.1. Descrieti algoritmul (pseudocod sau C/C++) pentru generarea Factorial(n) si analizati corectitudinea acestuia.
-
+_______________________
  n | fact | i | i <= n |
 ------------------------
  4 |   1  | 2 |    A   |
@@ -87,9 +87,9 @@ function Algoritm_1(n)
     return x 
 end function
 Care este valoarea returnata daca n este 8? Dar daca n este 16?
-
+___________________________
 nr |  i  |     j     |  x  |
----------------------------
+----------------------------
  8 |  0  |  3,5,7,9  |   4 |
    |  1  |  3,5,7,9  |   8 |
    |  2  |  3,5,7,9  |  12 |
@@ -98,7 +98,7 @@ nr |  i  |     j     |  x  |
    |  5  |  3,5,7,9  |  24 |
    |  6  |  3,5,7,9  |  28 |
    |  7  |  3,5,7,9  |  32 |
-
+_______________________________________
 nr |  i  |          j           |  x   |
 ----------------------------------------
 16 |  0  |  3,5,7,9,11,13,15,17 |    8 |
@@ -139,7 +139,7 @@ function Algoritm_2(a)
    return k
 end function 
 Care este semnificatia executiei acestuia? Demonstrati.
-
+___________________________________________
  a |  x  |  k  |  c  | a>1 | a%x==0 | c!=0 |
 --------------------------------------------
  7 |  2  |  0  |  A  |  0  |    F   |   A  |
