@@ -26,7 +26,6 @@ int main() {
 
 // 5.3 Scrieti un program care determina divizorul numerelor de forma n3+2n, n>0. Dar pentru n5-n
 #include <stdio.h>
-
 int main() {
     int n, nr, div;
     do {
