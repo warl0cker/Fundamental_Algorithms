@@ -111,3 +111,19 @@ int main() {
 // - dacă numărul este par, se împarte la 2.
 // Programul afiseaza un şir de numere construit conform regulilor precedente,  în care primul număr este 4 iar ultimul este n.
 // Indicaţie: Şirul se va genera invers, de la n la 4, aplicând transformarile inverse. Spre exemplu: n=125, rezulta: 250, 25, 50, 5,10, 1, 2, 4.
+#include <stdio.h>
+int main(){
+    int nr, cnt = 0, arr[1024] = {};
+    scanf("%d", &nr);
+    while (nr != 4){
+        if (nr % 10 == 0 || nr % 10 == 4) nr /= 10;
+        else nr = nr * 2;
+        arr[cnt++] = nr;
+        
+    }
+    for (int i = 0; i < cnt; i++){
+        if(i == cnt-1) printf("%d\n", arr[i]);
+        else printf("%d, ", arr[i]);
+    }
+    return 0;
+}
