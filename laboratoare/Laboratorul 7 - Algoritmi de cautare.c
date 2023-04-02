@@ -232,3 +232,44 @@ int main() {
 }
 
 // 7.9.* Implementati un algoritm de cautare ternara. Cautarea ternara presupune impartirea intervalului de cautare in 3 parti.
+#include <stdio.h>
+int cautareTernara(int arr[], int stanga, int dreapta, int e) {
+    while (dreapta >= stanga) {
+        int mijloc1 = stanga + (dreapta - stanga) / 3;
+        int mijloc2 = dreapta - (dreapta - stanga) / 3;
+        if (arr[mijloc1] == e) return mijloc1;
+        if (arr[mijloc2] == e) return mijloc2;
+        if (e < arr[mijloc1]) dreapta = mijloc1 - 1;
+        else if (e > arr[mijloc2]) stanga = mijloc2 + 1;
+        else {
+            stanga = mijloc1 + 1;
+            dreapta = mijloc2 - 1;
+        }
+    }
+    return -1;
+}
+int main() {
+    int n, e, temp;
+    printf("Introduceti marimea tabloului: ");
+    scanf("%d", &n);
+    int arr[n];
+    for(int i=0; i<n; i++){
+        printf("arr[%d]=", i);
+        scanf("%d", &arr[i]);
+    }
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    printf("Introduceti dimensiunea vectorului: ");
+    scanf("%d", &e);
+    int pozitie = cautareTernara(arr, 0, n - 1, e);
+    if (pozitie != -1) printf("Elementul %d a fost gasit la pozitia %d\n", e, pozitie);
+    else printf("Elementul %d nu a fost gasit\n", e);
+    return 0;
+}
