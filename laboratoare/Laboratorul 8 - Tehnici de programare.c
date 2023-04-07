@@ -61,3 +61,6 @@ int main(){
  * Output: Cel mai mic element lipsa este: 3
  *
  */
+
+
+// 8.9. Aceeasi problema ca la exercitiul 8.9, dar utilizand un algoritm in timp de executie logaritmic.
