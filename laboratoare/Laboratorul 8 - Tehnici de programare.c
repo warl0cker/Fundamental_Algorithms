@@ -39,3 +39,15 @@ int main(){
  * Input:  A[] = [1, 9, 6, 4, 5]
  * Output: Numarul de inversari este 5:  (9, 6), (9, 4), (9, 5), (6, 4), (6, 5)
  */
+#include <stdio.h>
+int main(){
+    int arr[] = {1, 9, 6, 4, 5};
+    size_t length = sizeof(arr) / sizeof(arr[0]);
+    for(int i = 0; i < length; i++){
+        for(int j = 0; j < length; j++){
+           if (i < j && arr[i] > arr[j]) printf("(%d,%d), ", arr[i], arr[j]);
+        }
+    }
+    return 0;
+}
+
