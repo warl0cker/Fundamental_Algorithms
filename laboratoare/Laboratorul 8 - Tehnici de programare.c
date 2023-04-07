@@ -61,6 +61,30 @@ int main(){
  * Output: Cel mai mic element lipsa este: 3
  *
  */
-
+#include <stdio.h>
+int main() {
+    int arr[] = {0, 1, 2, 6, 9, 11, 15};
+    size_t n = sizeof(arr) / sizeof(arr[0]);
+	int st = 0, dr = n-1, int = mij;
+	while (st <= dr) {
+	    mij = (st + dr) / 2;
+	    if (arr[mid] == mij) st = mij + 1;
+	    else dr = mij -1;
+	}
+	printf("Cel mai mic element lipsa este: %d\n", st);
+}
 
 // 8.9. Aceeasi problema ca la exercitiul 8.9, dar utilizand un algoritm in timp de executie logaritmic.
+#include <stdio.h>
+int cautaElemLipsa(int arr[], int st, int dr){
+    if (st > dr) return st;
+    int mij = (st + dr) / 2;
+    if (arr[mij] == mij) return cautaElemLipsa(arr, mij + 1, dr);
+    else return cautaElemLipsa(arr, st, mij - 1);
+}
+int main() {
+    int arr[] = {0, 1, 2, 6, 9, 11, 15};
+    size_t n = sizeof(arr) / sizeof(arr[0]);
+    printf("%d\n", cautaElemLipsa(arr, 0, n-1));
+    return 0;
+}
