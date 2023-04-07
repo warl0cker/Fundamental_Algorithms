@@ -32,12 +32,14 @@ int main(){
     return 0;
 }
 
-/*
+/**
+ *
  * 8.7 Având în vedere un vector unidimensional, găsiți numărul total de inversiuni ale acestuia.
  * Dacă (i < j) și (A[i] > A[j]), atunci perechea (i, j) se numește o inversare a unui vector A.
  * Trebuiesc numărate toate astfel de perechi din tablou. Exemplu: 
  * Input:  A[] = [1, 9, 6, 4, 5]
  * Output: Numarul de inversari este 5:  (9, 6), (9, 4), (9, 5), (6, 4), (6, 5)
+ *
  */
 #include <stdio.h>
 int main(){
@@ -51,3 +53,11 @@ int main(){
     return 0;
 }
 
+/**
+ *
+ * 8.8. Determinati elementul cel mai mic diferit de 0 lipsa dintre elementele unui vector unidimensional, ordonat crescator. 
+ * Exemplu:
+ * Input:  nums[] = [0, 1, 2, 6, 9, 11, 15]
+ * Output: Cel mai mic element lipsa este: 3
+ *
+ */
