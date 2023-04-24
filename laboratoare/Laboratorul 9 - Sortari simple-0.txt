@@ -33,6 +33,29 @@ Cazul cel mai favorabil:   τ(n) = 5n-2             ∈ O(n)
 Cazul cel mai nefavorabil: τ(n) = 5n-2+3n^2/2-3n/2 ∈ O(n^2)
 În cazul 1 termenul dominant este O(n).
 În cazul 2 termenul dominant este O(n^2).
+
+TO DO: creati programul complet pentru algortimul descris mai sus, sortarea prin insertie la stanga crescator. 
+#include <stdio.h>
+int main(){
+    int n, aux, j;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        printf("arr[%d]= ", i);
+        scanf("%d", &arr[i]);
+    }
+    for(int i = 1; i < n; i++){
+        aux = arr[i];
+        j = i - 1;
+        while(aux < arr[j] && j >= 0){
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = aux;
+    }
+    for(int i=0; i<n; i++) printf("%d, ", arr[i]);
+    return 0;
+}
 =======================================================
 
 7.2 Sortarea prin selecţia minimului
@@ -69,4 +92,7 @@ Analizati ( daca e cazul) complexitatea.
 Cazul cel mai favorabil:   τ(n) = 4n-2+2Σ2(n-i) ∈ O(n^2)
 Cazul cel mai nefavorabil: τ(n) =               ∈ O(n^2)
 În ambele cazuri termenul dominant este O(n^2).
+
+TO DO: creati programul complet pentru algortimul descris mai sus, sortarea prin insertie la stanga crescator.
+
 =======================================================
