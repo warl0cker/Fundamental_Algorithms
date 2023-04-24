@@ -1,0 +1,72 @@
+7.1. Sortarea prin inserţie
+Metoda sortării unui şir prin inserţie reprezintă un algoritm simplu de sortare prin comparare. Şirul iniţial, de lungime n, este ordonat în n - 1 paşi, adăugând succesiv, câte un element la un subşir deja sortat. Pentru şiruri  "aproape" ordonate sau de dimensiune redusă, acest algoritm este eficient din punct de vedere al timpului de execuţie.
+
+Problema: 
+Sortarea crescătoare a celor n elemente v[0], v[1], . . . , v[n-1] ale unui vector v.
+
+Algoritm:
+1. Considerăm subşirul v[0], care este deja ordonat.
+2. Pentru fiecare i de la 1 la n - 1, subşirul v[0]; v[1]; ... ; v[i - 1] este sortat şi se caută poziţia corespunzătoare a elementului v[i]: acel k ∈ { 0; 1; ... ; i - 1}, cu proprietatea că v[k - 1] ≤ v[i] < v[k]; elementele  v[k]; ... ; v[i - 1] se mută cu o poziţie la dreapta, iar elementul curent, v[i], se inserează pe poziţia k.
+
+Calculati  T(n)
+Analizati ( daca e cazul) complexitatea.
+
+ ________________________________
+|  COST      |  Nr. rep.         |
+|------------|-------------------|
+| 1. 2n      |        1          |
+|------------|-------------------|
+| 2. 1       |      n-1          |
+|------------|-------------------|
+| 3. 1       |      n-1          |
+|------------|-------------------|
+| 4. 1       | Στj(n)+1          |
+|------------|-------------------|
+| 5. 1       |   Στj(n)          |
+|------------|-------------------|
+| 6. 1       |   Στ1(n)          |
+|------------|-------------------|
+| 7. 1       |     n-1           |
+'--------------------------------'
+
+Cazul cel mai favorabil:   τ(n) = 5n-2             ∈ O(n)
+Cazul cel mai nefavorabil: τ(n) = 5n-2+3n^2/2-3n/2 ∈ O(n^2)
+În cazul 1 termenul dominant este O(n).
+În cazul 2 termenul dominant este O(n^2).
+=======================================================
+
+7.2 Sortarea prin selecţia minimului
+Este tot o sortare prin comparaţie.
+
+Problema: 
+Sortarea crescătoare a celor n elemente v[0], v[1], . . . , v[n-1] ale unui vector v, pentru fiecare i de la 0 la n - 2.
+
+Algoritm:
+1. Se caută valoarea minimă din şirul v[i]; ... ; v[n-1], rămas neordonat.
+2. Valoarea minimului se interschimbă cu elementul de la poziţia i.
+
+Calculati  T(n)
+Analizati ( daca e cazul) complexitatea.
+
+ ________________________________
+|  COST      |  Nr. rep.         |
+|------------|-------------------|
+| 1. 2n      |       1           |
+|------------|-------------------|
+| 2. 1       |     n-1           |
+|------------|-------------------|
+| 3. Σ2(n-i) |       1           |
+|------------|-------------------|
+| 4. 1       |    Σn-1           |
+|------------|-------------------|
+| 5. 1       |  Στ1i(n)          |
+|------------|-------------------|
+| 6. 1       |     n-1           |
+|------------|-------------------|
+| 7. 1       |   τ1i(n)          |
+'--------------------------------'
+
+Cazul cel mai favorabil:   τ(n) = 4n-2+2Σ2(n-i) ∈ O(n^2)
+Cazul cel mai nefavorabil: τ(n) =               ∈ O(n^2)
+În ambele cazuri termenul dominant este O(n^2).
+=======================================================
