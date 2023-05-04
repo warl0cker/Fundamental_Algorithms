@@ -36,7 +36,6 @@ int main() {
 
 // Exercitiul 10.2. Implementati intr-un program C/C++ algoritmul de sortare prin interclasare pentru un tablou unidimensional de n valori intregi: 57, 44, 101, 85, 15, 75, 11, 33.
 #include <stdio.h>
-
 void interclasare(int v[], int w[], int st, int m, int dr){
     int i = st;
     int j = m + 1;
@@ -65,7 +64,6 @@ void interclasare(int v[], int w[], int st, int m, int dr){
         v[i + st] = w[i];
     }
 }
-
 void mergesort(int v[], int w[], int st, int dr){
     if (st < dr){
         int m = (st + dr) / 2;
@@ -74,7 +72,6 @@ void mergesort(int v[], int w[], int st, int dr){
         interclasare(v, w, st, m, dr);
     }
 }
-
 int main(){
     int arr1[8] = {57, 44, 101, 85, 15, 75, 11, 33};
     int arr2[8];
