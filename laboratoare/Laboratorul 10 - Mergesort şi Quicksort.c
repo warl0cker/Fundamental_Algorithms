@@ -34,6 +34,55 @@ int main() {
     return 0;
 }
 
+// Exercitiul 10.2. Implementati intr-un program C/C++ algoritmul de sortare prin interclasare pentru un tablou unidimensional de n valori intregi: 57, 44, 101, 85, 15, 75, 11, 33.
+#include <stdio.h>
+
+void interclasare(int v[], int w[], int st, int m, int dr){
+    int i = st;
+    int j = m + 1;
+    int k = 0;
+    while(i <= m && j <= dr){
+        if(v[i] <= v[j]){
+            w[k] = v[i];
+            i = i + 1;
+        } else {
+            w[k] = v[j];
+            j = j + 1;
+        }
+        k = k + 1;
+    }
+    while(i <= m){
+        w[k] = v[i];
+        i = i + 1;
+        k = k + 1;
+    }
+    while(j <= dr){
+        w[k] = v[j];
+        j = j + 1;
+        k = k + 1;
+    }
+    for (i = 0; i <= k - 1; i++){
+        v[i + st] = w[i];
+    }
+}
+
+void mergesort(int v[], int w[], int st, int dr){
+    if (st < dr){
+        int m = (st + dr) / 2;
+        mergesort(v, w, st, m);
+        mergesort(v, w, m + 1, dr);
+        interclasare(v, w, st, m, dr);
+    }
+}
+
+int main(){
+    int arr1[8] = {57, 44, 101, 85, 15, 75, 11, 33};
+    int arr2[8];
+    mergesort(arr1, arr2, 0, 7);
+    for (int i = 0; i < 8; i++) printf("%d,", arr1[i]);
+    return 0;
+}
+
 // Exercitiul 10.3. Implementati intr-un program C secventa de pivotare, prima iteratie, din algoritmul de sortare pentru un tablou unidimensional de n valori intregi: 57, 44, 101, 85, 15, 75, 11, 33. Afisati elementele vectorului dupa executia primei iteratii de pivotare. Observati si explicati efectul acesteia.
 #include <stdio.h>
 int pivotare(int v[], int st, int dr) {
